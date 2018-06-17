@@ -5,6 +5,7 @@ using ChatClient.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Prism.Unity;
+using ChatClient.Models;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace ChatClient
@@ -31,6 +32,8 @@ namespace ChatClient
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<ChatPage>();
+            containerRegistry.RegisterSingleton<ITalkManager, TalkManager>();
+            containerRegistry.RegisterSingleton<Setting>();
         }
     }
 }

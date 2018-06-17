@@ -14,24 +14,24 @@
         <ListView
             x:Name="ListViewMazaiNotes"
             BackgroundColor="White"
-            ItemsSource="{Binding Memos.Value}">
+            ItemsSource="{Binding Talks.Value}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ImageCell Detail="{Binding Text}" Text="{Binding Title}" />
+                    <ImageCell Detail="{Binding Text}" Text="{Binding User.Name}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
-            <ListView.Behaviors>
+            <!--<ListView.Behaviors>
                 <b:EventToCommandBehavior
                     Command="{Binding ItemSelectedCommand}"
                     EventArgsParameterPath="Item"
                     EventName="ItemTapped" />
-            </ListView.Behaviors>
+            </ListView.Behaviors>-->
         </ListView>
         <StackLayout
             BackgroundColor="NavajoWhite"
             HorizontalOptions="FillAndExpand"
             Orientation="Horizontal">
-            <Entry HorizontalOptions="FillAndExpand" Text="{Binding InputText}" />
+            <Entry HorizontalOptions="FillAndExpand" Text="{Binding InputText.Value}" />
             <Button
                 Command="{Binding SendTextCommand}"
                 Text="送信"
