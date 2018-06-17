@@ -7,9 +7,9 @@ using Xamarin.Forms;
 
 namespace ChatClient.Views
 {
-	public partial class MainPage : ContentPage
+	public partial class ChatPage : ContentPage
 	{
-		public MainPage ()
+		public ChatPage ()
 		{
 			InitializeComponent ();
 		}

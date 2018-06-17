@@ -8,12 +8,12 @@ using System.Text;
 
 namespace ChatClient.ViewModels
 {
-    public class MainPageViewModel : ViewModelBase
+    public class ChatPageViewModel : ViewModelBase
     {
-        public MainPageViewModel(INavigationService navigationService) 
+        public ChatPageViewModel(INavigationService navigationService) 
             : base (navigationService)
         {
-            Title = "Main Page";
+            Title = "Chat Page";
         }
     }
 }
