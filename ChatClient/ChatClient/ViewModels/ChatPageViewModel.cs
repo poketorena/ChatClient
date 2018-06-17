@@ -17,7 +17,6 @@ namespace ChatClient.ViewModels
         public ReactiveProperty<ReactiveCollection<Talk>> Talks { get; } = new ReactiveProperty<ReactiveCollection<Talk>>();
 
         public ReactiveProperty<string> InputText { get; set; } = new ReactiveProperty<string>();
-        public ReactiveProperty<string> UserName { get; set; } = new ReactiveProperty<string>("TestUser");
 
         // デリゲートコマンド
         private DelegateCommand _sendTextCommand;
