@@ -3,10 +3,40 @@
     x:Class="ChatClient.Views.ChatPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
     Title="{Binding Title}">
 
-    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <Label Text="Welcome to Xamarin Forms and Prism!" />
+    <StackLayout
+        BackgroundColor="Aqua"
+        HorizontalOptions="FillAndExpand"
+        Spacing="0"
+        VerticalOptions="FillAndExpand">
+        <ListView
+            x:Name="ListViewMazaiNotes"
+            BackgroundColor="White"
+            ItemsSource="{Binding Memos.Value}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ImageCell Detail="{Binding Text}" Text="{Binding Title}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.Behaviors>
+                <b:EventToCommandBehavior
+                    Command="{Binding ItemSelectedCommand}"
+                    EventArgsParameterPath="Item"
+                    EventName="ItemTapped" />
+            </ListView.Behaviors>
+        </ListView>
+        <StackLayout
+            BackgroundColor="NavajoWhite"
+            HorizontalOptions="FillAndExpand"
+            Orientation="Horizontal">
+            <Entry HorizontalOptions="FillAndExpand" Text="{Binding InputText}" />
+            <Button
+                Command="{Binding SendTextCommand}"
+                Text="送信"
+                WidthRequest="80" />
+        </StackLayout>
     </StackLayout>
 
 </ContentPage>
