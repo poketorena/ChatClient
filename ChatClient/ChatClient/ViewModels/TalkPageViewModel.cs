@@ -21,10 +21,6 @@ namespace ChatClient.ViewModels
         public DelegateCommand SendTextCommand =>
             _sendTextCommand ?? (_sendTextCommand = new DelegateCommand(ExecuteSendTextCommand));
 
-        //private DelegateCommand<Memo> _itemSelectedCommand;
-        //public DelegateCommand<Memo> ItemSelectedCommand =>
-        //    _itemSelectedCommand ?? (_itemSelectedCommand = new DelegateCommand<Memo>(ExecuteItemSelectedCommand));
-
         // プライベート変数
         private readonly ITalkManager _talkManager;
         private readonly Setting _setting;
