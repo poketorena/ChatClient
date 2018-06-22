@@ -24,7 +24,7 @@ namespace ChatClient.ViewModels
         // プライベート変数
         private readonly ITalkManager _talkManager;
         private readonly Setting _setting;
-        private MobileClient.SignalRClient _signalRClient;
+        private readonly SignalRClient _signalRClient;
 
         // コンストラクタ
         public TalkPageViewModel(INavigationService navigationService, ITalkManager talkManager, Setting setting, SignalRClient signalRClient)
@@ -54,7 +54,7 @@ namespace ChatClient.ViewModels
             // クラウドにトークを送信する
             Task.Run(async () => await _signalRClient.SendMessage("MESSAGE", talk));
 
-            // テキストを空にする
+            // テキストフィールドをリセットする
             InputText.Value = string.Empty;
         }
     }
