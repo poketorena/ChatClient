@@ -8,14 +8,10 @@
     Icon="TalkTabImage.png">
 
     <StackLayout
-        BackgroundColor="Aqua"
         HorizontalOptions="FillAndExpand"
         Spacing="0"
         VerticalOptions="FillAndExpand">
-        <ListView
-            x:Name="ListViewMazaiNotes"
-            BackgroundColor="White"
-            ItemsSource="{Binding Talks.Value}">
+        <ListView x:Name="ListViewMazaiNotes" ItemsSource="{Binding Talks.Value}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ImageCell Detail="{Binding Text}" Text="{Binding User.Name}" />
@@ -28,10 +24,12 @@
                     EventName="ItemTapped" />
             </ListView.Behaviors>-->
         </ListView>
-        <StackLayout
-            BackgroundColor="NavajoWhite"
-            HorizontalOptions="FillAndExpand"
-            Orientation="Horizontal">
+        <BoxView
+            Margin="0,10,0,10"
+            HeightRequest="1"
+            WidthRequest="100"
+            Color="Gray" />
+        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
             <Entry HorizontalOptions="FillAndExpand" Text="{Binding InputText.Value}" />
             <Button
                 Command="{Binding SendTextCommand}"
