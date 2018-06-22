@@ -34,7 +34,7 @@ namespace MobileClient
         public async Task InitializeSignalR()
         {
             _hub = new HubConnectionBuilder()
-                .WithUrl("http://aspnetcoresignalr20180622094156.azurewebsites.net/updater")
+                .WithUrl("https://aspnetcoresignalr20180623025736.azurewebsites.net/updater")
                 .Build();
 
             _hub.On<string, Talk>("NewUpdate",

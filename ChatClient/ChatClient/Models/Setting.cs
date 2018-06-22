@@ -18,7 +18,7 @@ namespace ChatClient.Models
             User = new User
             {
                 Id = Guid.NewGuid().ToString(),
-                Name = "TestUser"
+                Name = "Anonymous"
             };
         }
     }

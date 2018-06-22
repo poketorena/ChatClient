@@ -6,4 +6,10 @@
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
     Title="Friend"
     prism:ViewModelLocator.AutowireViewModel="True"
-    Icon="FriendTabImage.png" />
+    Icon="FriendTabImage.png">
+
+    <Label
+        HorizontalOptions="Center"
+        Text="未実装"
+        VerticalOptions="Center" />
+</ContentPage>

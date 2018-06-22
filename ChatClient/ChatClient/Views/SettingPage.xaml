@@ -6,4 +6,16 @@
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
     Title="Setting"
     prism:ViewModelLocator.AutowireViewModel="True"
-    Icon="SettingTabImage.png" />
+    Icon="SettingTabImage.png">
+
+    <StackLayout Orientation="Vertical">
+        <Label Text="UserName" TextColor="Black" />
+        <StackLayout Orientation="Horizontal">
+            <Entry HorizontalOptions="FillAndExpand" Text="{Binding UserName.Value}" />
+            <Button
+                Command="{Binding UpdateUserNameCommand}"
+                Text="Update"
+                WidthRequest="80" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
