@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Resouces\**" />
+    <EmbeddedResource Remove="Resouces\**" />
+    <None Remove="Resouces\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="ReactiveProperty" Version="5.0.0" />
     <PackageReference Include="Xamarin.Forms" Version="2.5.0.122203" />
     <PackageReference Include="Prism.Unity.Forms" Version="7.0.0.396" />
@@ -25,10 +31,6 @@
     <Compile Update="Views\SettingPage.xaml.cs">
       <DependentUpon>SettingPage.xaml</DependentUpon>
     </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Resouces\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -201,5 +201,14 @@
       <Name>ChatClient</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\FriendTabImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SettingTabImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\TalkTabImage.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
