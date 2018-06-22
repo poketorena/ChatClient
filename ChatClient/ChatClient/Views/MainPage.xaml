@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage
+    x:Class="ChatClient.Views.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Views="clr-namespace:ChatClient.Views"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    prism:ViewModelLocator.AutowireViewModel="True">
+
+    <!--  友達を表示するタブ  -->
+    <Views:FriendPage />
+    <!--  トークを表示するタブ  -->
+    <Views:TalkPage />
+    <!--  設定を表示するタブ  -->
+    <Views:SettingPage />
+
+</TabbedPage>

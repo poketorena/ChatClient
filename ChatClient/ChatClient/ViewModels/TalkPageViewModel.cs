@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ChatClient.ViewModels
 {
-    public class ChatPageViewModel : ViewModelBase
+    public class TalkPageViewModel : ViewModelBase
     {
         // プロパティ
         public ReactiveProperty<ReactiveCollection<Talk>> Talks { get; } = new ReactiveProperty<ReactiveCollection<Talk>>();
@@ -31,10 +31,9 @@ namespace ChatClient.ViewModels
         private MobileClient.SignalRClient _signalRClient;
 
         // コンストラクタ
-        public ChatPageViewModel(INavigationService navigationService, ITalkManager talkManager, Setting setting, SignalRClient signalRClient)
+        public TalkPageViewModel(INavigationService navigationService, ITalkManager talkManager, Setting setting, SignalRClient signalRClient)
             : base(navigationService)
         {
-            Title = "Chat Page";
             _talkManager = talkManager;
             _setting = setting;
             _signalRClient = signalRClient;

@@ -25,13 +25,16 @@ namespace ChatClient
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/ChatPage");
+            await NavigationService.NavigateAsync("NavigationPage/MainPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<ChatPage>();
+            containerRegistry.RegisterForNavigation<TalkPage>();
+            containerRegistry.RegisterForNavigation<MainPage>();
+            containerRegistry.RegisterForNavigation<FriendPage>();
+            containerRegistry.RegisterForNavigation<SettingPage>();
             containerRegistry.RegisterSingleton<ITalkManager, TalkManager>();
             containerRegistry.RegisterSingleton<Setting>();
             containerRegistry.RegisterSingleton<SignalRClient>();
