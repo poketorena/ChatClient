@@ -31,10 +31,10 @@ namespace ChatClient.ViewModels
         // プライベート変数
         private readonly ITalkManager _talkManager;
         private readonly Setting _setting;
-        private SignalRClient _signalRClient;
+        private MobileClient.SignalRClient _signalRClient;
 
         // コンストラクタ
-        public ChatPageViewModel(INavigationService navigationService, ITalkManager talkManager, Setting setting, SignalRClient signalRClient)
+        public ChatPageViewModel(INavigationService navigationService, ITalkManager talkManager, Setting setting, MobileClient.SignalRClient signalRClient)
             : base(navigationService)
         {
             Title = "Chat Page";
@@ -45,9 +45,17 @@ namespace ChatClient.ViewModels
             Talks = _talkManager.ToReactivePropertyAsSynchronized(x => x.Talks);
         }
 
-        private void SignalR_ValueChanged(object sender, ValueChangedEventArgs e)
+        private void SignalR_ValueChanged(object sender, MobileClient.ValueChangedEventArgs e)
         {
-            _talkManager.Talks.AddOnScheduler(e.Talk);
+            var talk = new Talk
+            {
+                Text = e.TalkString,
+            };
+            talk.User = new User();
+            talk.User.Id = Guid.NewGuid().ToString();
+            talk.User.Name = "Hoge";
+
+            _talkManager.Talks.AddOnScheduler(talk);
         }
 
         // プライベート関数
@@ -66,7 +74,7 @@ namespace ChatClient.ViewModels
             //_talkManager.Add(talk);
 
             // クラウドにトークを送信する
-            Task.Run(async () => await _signalRClient.SendMessage("MESSAGE", talk));
+            Task.Run(async () => await _signalRClient.SendMessage("MESSAGE", talk.Text));
 
             // テキストを
             InputText.Value = string.Empty;

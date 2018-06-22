@@ -21,6 +21,7 @@ Xamarin.Formsを使ったチャットアプリ
 * [Prism](https://github.com/PrismLibrary/Prism)
 * [Unity](https://github.com/unitycontainer/unity)
 * [ReactiveProperty](https://github.com/runceel/ReactiveProperty)
+* [XamarinSignalRCore](https://github.com/rizamarhaban/xamarinsignalrcore)
 
 ## Author
 
