@@ -1,11 +1,11 @@
-﻿using Prism;
-using Prism.Ioc;
-using ChatClient.ViewModels;
+﻿using ChatClient.Models;
 using ChatClient.Views;
+using MobileClient;
+using Prism;
+using Prism.Ioc;
+using Prism.Unity;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Prism.Unity;
-using ChatClient.Models;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace ChatClient
@@ -34,7 +34,7 @@ namespace ChatClient
             containerRegistry.RegisterForNavigation<ChatPage>();
             containerRegistry.RegisterSingleton<ITalkManager, TalkManager>();
             containerRegistry.RegisterSingleton<Setting>();
-            containerRegistry.RegisterSingleton<MobileClient.SignalRClient>();
+            containerRegistry.RegisterSingleton<SignalRClient>();
         }
     }
 }

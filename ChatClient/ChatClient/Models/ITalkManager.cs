@@ -1,9 +1,6 @@
-﻿using Reactive.Bindings;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using ChatClient.Data;
+using Reactive.Bindings;
 using System.ComponentModel;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace ChatClient.Models

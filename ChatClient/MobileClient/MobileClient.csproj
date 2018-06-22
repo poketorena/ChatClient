@@ -10,7 +10,11 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="1.0.0-alpha1-final" />
-    <PackageReference Include="Xamarin.Forms" Version="2.4.0.280" />
+    <PackageReference Include="Xamarin.Forms" Version="2.5.0.122203" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\ChatClient.Data\ChatClient.Data.csproj" />
   </ItemGroup>
 
 </Project>

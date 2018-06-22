@@ -1,7 +1,6 @@
-﻿using Prism.Mvvm;
+﻿using ChatClient.Data;
+using Prism.Mvvm;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ChatClient.Models
 {

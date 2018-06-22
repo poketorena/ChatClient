@@ -1,13 +1,10 @@
-﻿using ChatClient.Models;
+﻿using ChatClient.Data;
+using ChatClient.Models;
+using MobileClient;
 using Prism.Commands;
-using Prism.Mvvm;
 using Prism.Navigation;
 using Reactive.Bindings;
 using Reactive.Bindings.Extensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace ChatClient.ViewModels
@@ -34,7 +31,7 @@ namespace ChatClient.ViewModels
         private MobileClient.SignalRClient _signalRClient;
 
         // コンストラクタ
-        public ChatPageViewModel(INavigationService navigationService, ITalkManager talkManager, Setting setting, MobileClient.SignalRClient signalRClient)
+        public ChatPageViewModel(INavigationService navigationService, ITalkManager talkManager, Setting setting, SignalRClient signalRClient)
             : base(navigationService)
         {
             Title = "Chat Page";
@@ -45,38 +42,24 @@ namespace ChatClient.ViewModels
             Talks = _talkManager.ToReactivePropertyAsSynchronized(x => x.Talks);
         }
 
-        private void SignalR_ValueChanged(object sender, MobileClient.ValueChangedEventArgs e)
+        private void SignalR_ValueChanged(object sender, ValueChangedEventArgs e)
         {
-            var talk = new Talk
-            {
-                Text = e.TalkString,
-            };
-            talk.User = new User();
-            talk.User.Id = Guid.NewGuid().ToString();
-            talk.User.Name = "Hoge";
-
-            _talkManager.Talks.AddOnScheduler(talk);
+            _talkManager.Talks.AddOnScheduler(e.Talk);
         }
 
         // プライベート関数
         private void ExecuteSendTextCommand()
         {
-
-
-            // とりあえず今はローカルのコレクションに追加する
             var talk = new Talk
             {
                 Text = InputText.Value,
                 User = _setting.User
             };
 
-            // モデルのコレクションに追加
-            //_talkManager.Add(talk);
-
             // クラウドにトークを送信する
-            Task.Run(async () => await _signalRClient.SendMessage("MESSAGE", talk.Text));
+            Task.Run(async () => await _signalRClient.SendMessage("MESSAGE", talk));
 
-            // テキストを
+            // テキストを空にする
             InputText.Value = string.Empty;
         }
     }

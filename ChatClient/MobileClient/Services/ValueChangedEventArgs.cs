@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChatClient.Data;
+using System;
 
 namespace MobileClient
 {
@@ -14,17 +15,17 @@ namespace MobileClient
         /// <summary>
         /// Gets the state.
         /// </summary>
-        public string TalkString { get; private set; }
+        public Talk Talk { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ValueChangedEventArgs"/> class.
         /// </summary>
         /// <param name="command">The command.</param>
         /// <param name="talk">The state.</param>
-        public ValueChangedEventArgs(string command, string talk)
+        public ValueChangedEventArgs(string command, Talk talk)
         {
             Command = command;
-            TalkString = talk;
+            Talk = talk;
         }
     }
 }

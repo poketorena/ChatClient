@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.SignalR;
+﻿using ChatClient.Data;
+using Microsoft.AspNetCore.SignalR;
 
 namespace AspNetCoreSignalR.Hubs
 {
@@ -11,7 +12,7 @@ namespace AspNetCoreSignalR.Hubs
         /// <summary>
         /// New Update method
         /// </summary>
-        public void NewUpdate(string command, string talk)
+        public void NewUpdate(string command, Talk talk)
         {
             Clients.All.InvokeAsync("NewUpdate", command, talk);
         }

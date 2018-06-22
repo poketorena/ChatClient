@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.SignalR.Client;
+﻿using ChatClient.Data;
+using Microsoft.AspNetCore.SignalR.Client;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
@@ -36,7 +37,7 @@ namespace MobileClient
                 .WithUrl("http://aspnetcoresignalr20180622094156.azurewebsites.net/updater")
                 .Build();
 
-            _hub.On<string, string>("NewUpdate",
+            _hub.On<string, Talk>("NewUpdate",
                 (command, talk) => ValueChanged?
                 .Invoke(this, new ValueChangedEventArgs(command, talk)));
 
@@ -48,10 +49,9 @@ namespace MobileClient
         /// </summary>
         /// <param name="command">The command.</param>
         /// <param name="talk">The state.</param>
-        public async Task SendMessage(string command, string talk)
+        public async Task SendMessage(string command, Talk talk)
         {
             await _hub?.InvokeAsync("NewUpdate", new object[] { command, talk });
         }
     }
-
 }
