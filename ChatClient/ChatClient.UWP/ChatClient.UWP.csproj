@@ -124,6 +124,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client">
+      <Version>1.0.0-alpha1-final</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.0.6" />
     <PackageReference Include="ReactiveProperty">
       <Version>5.0.0</Version>

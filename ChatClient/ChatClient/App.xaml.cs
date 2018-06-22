@@ -34,6 +34,7 @@ namespace ChatClient
             containerRegistry.RegisterForNavigation<ChatPage>();
             containerRegistry.RegisterSingleton<ITalkManager, TalkManager>();
             containerRegistry.RegisterSingleton<Setting>();
+            containerRegistry.RegisterSingleton<SignalRClient>();
         }
     }
 }
